@@ -15,7 +15,7 @@ const drawCard = () => Math.floor(Math.random() * 13) + 2;
 const determineWinner = (cardA, cardB) => {
     if (cardA > cardB) return 'A'; // Equipo A gana
     if (cardB > cardA) return 'B'; // Equipo B gana
-    return 'Draw'; // Empate
+    return 'Empate'; // Empate
 };
 
 // Endpoint para iniciar una nueva ronda con cartas
@@ -30,7 +30,7 @@ app.post('/new-game', (req, res) => {
 // Endpoint para realizar una apuesta
 app.post('/bet', (req, res) => {
     const { userBet } = req.body;
-    if (!userBet || !['A', 'B', 'Draw'].includes(userBet)) {
+    if (!userBet || !['A', 'B', 'Empate'].includes(userBet)) {
         return res.status(400).json({ message: 'Invalid bet. Choose A, B, or Draw.' });
     }
 
