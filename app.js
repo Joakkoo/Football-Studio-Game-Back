@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+app.use(cors({ origin: 'https://football-studio-game-front.onrender.com' })); // Cambia por la URL real de tu frontend
 app.use(express.json());
-app.use(cors({ origin: '' })); // Cambia por la URL real de tu frontend
 
 let currentGame = {};
 
@@ -44,6 +44,10 @@ app.post('/bet', (req, res) => {
         cardB,
         win: isWin
     });
+});
+
+app.get('/health', (req, res) => {
+    res.send('El servidor está funcionando correctamente');
 });
 
 // Cambia app.listen para usar el puerto asignado por Render
