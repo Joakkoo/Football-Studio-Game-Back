@@ -9,7 +9,7 @@ app.use(express.json());
 let currentGame = {};
 
 // Función para generar una carta aleatoria entre 2 y 14
-const drawCard = () => Math.floor(Math.random() * 13) + 2;
+const drawCard = () => Math.floor(Math.random() * 10) + 2;
 
 // Determina el ganador según las cartas
 const determineWinner = (cardA, cardB) => {
